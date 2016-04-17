@@ -1,6 +1,8 @@
 <% if Post.all.any? %>
   <% Post.all.each do |post| %>
-    <h2><%= post.caption %></h2>
+    <h2><%= link_to post.caption, post_path(post) %></h2>
+    <p><%= link_to "Edit", edit_post_path(post) %></p>
+    <p><%= link_to "Delete", post_path(post), method: :delete %></p>
   <% end %>
 <% else %>
   <h1>No posts yet!</h1>
