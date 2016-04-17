@@ -1,0 +1,9 @@
+<% if Post.all.any? %>
+  <% Post.all.each do |post| %>
+    <h2><%= post.caption %></h2>
+  <% end %>
+<% else %>
+  <h1>No posts yet!</h1>
+<% end %>
+
+<a href='/posts/new'>Upload an image</a>
