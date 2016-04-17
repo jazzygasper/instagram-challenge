@@ -1,1 +1,15 @@
-<p><%= @post.caption %></p>
+<% Post.all.each do |post| %>
+  <p><%= @post.caption %></p>
+  <p><%= link_to "Comment", new_post_comment_path(post) %></p>
+  <% if post.comments.any? %>
+    <ul>
+      <% post.comments.each do |comment| %>
+        <li>
+          <%= comment.comment %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No comments.</p>
+  <% end %>
+<% end %>
